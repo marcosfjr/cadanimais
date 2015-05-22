@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://service/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service/">
+
+<xs:element name="deleteAnimal" type="tns:deleteAnimal" />
+
+<xs:element name="deleteAnimalResponse" type="tns:deleteAnimalResponse" />
+
+<xs:element name="deleteEspecie" type="tns:deleteEspecie" />
+
+<xs:element name="deleteEspecieResponse" type="tns:deleteEspecieResponse" />
+
+<xs:element name="deleteRaca" type="tns:deleteRaca" />
+
+<xs:element name="deleteRacaResponse" type="tns:deleteRacaResponse" />
+
+<xs:element name="insertAnimal" type="tns:insertAnimal" />
+
+<xs:element name="insertAnimalResponse" type="tns:insertAnimalResponse" />
+
+<xs:element name="insertEspecie" type="tns:insertEspecie" />
+
+<xs:element name="insertEspecie2" type="tns:insertEspecie2" />
+
+<xs:element name="insertEspecie2Response" type="tns:insertEspecie2Response" />
+
+<xs:element name="insertEspecieResponse" type="tns:insertEspecieResponse" />
+
+<xs:element name="insertRaca" type="tns:insertRaca" />
+
+<xs:element name="insertRacaResponse" type="tns:insertRacaResponse" />
+
+<xs:element name="listAllAnimal" type="tns:listAllAnimal" />
+
+<xs:element name="listAllAnimalResponse" type="tns:listAllAnimalResponse" />
+
+<xs:element name="listAllEspecie" type="tns:listAllEspecie" />
+
+<xs:element name="listAllEspecieResponse" type="tns:listAllEspecieResponse" />
+
+<xs:element name="listAllRaca" type="tns:listAllRaca" />
+
+<xs:element name="listAllRacaResponse" type="tns:listAllRacaResponse" />
+
+<xs:element name="updateAnimal" type="tns:updateAnimal" />
+
+<xs:element name="updateAnimalResponse" type="tns:updateAnimalResponse" />
+
+<xs:element name="updateEspecie" type="tns:updateEspecie" />
+
+<xs:element name="updateEspecieResponse" type="tns:updateEspecieResponse" />
+
+<xs:element name="updateRaca" type="tns:updateRaca" />
+
+<xs:element name="updateRacaResponse" type="tns:updateRacaResponse" />
+
+<xs:complexType name="listAllAnimal">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listAllAnimalResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:animal" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="animal">
+<xs:sequence>
+<xs:element name="cor" type="xs:string" minOccurs="0" />
+<xs:element name="especie" type="tns:especie" minOccurs="0" />
+<xs:element name="id" type="xs:int" />
+<xs:element name="idade" type="xs:int" />
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+<xs:element name="peso" type="xs:double" />
+<xs:element name="raca" type="tns:raca" minOccurs="0" />
+<xs:element name="tamanho" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="especie">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="raca">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateRaca">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateRacaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertEspecie">
+<xs:sequence>
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertEspecieResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listAllRaca">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listAllRacaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:raca" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteEspecie">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteEspecieResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteAnimal">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteAnimalResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateAnimal">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+<xs:element name="idade" type="xs:int" />
+<xs:element name="cor" type="xs:string" minOccurs="0" />
+<xs:element name="peso" type="xs:double" />
+<xs:element name="tamanho" type="xs:int" />
+<xs:element name="raca" type="xs:int" />
+<xs:element name="especie" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateAnimalResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listAllEspecie">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listAllEspecieResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:especie" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertAnimal">
+<xs:sequence>
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+<xs:element name="idade" type="xs:int" />
+<xs:element name="cor" type="xs:string" minOccurs="0" />
+<xs:element name="peso" type="xs:double" />
+<xs:element name="tamanho" type="xs:int" />
+<xs:element name="raca" type="xs:int" />
+<xs:element name="especie" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertAnimalResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRaca">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRacaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertRaca">
+<xs:sequence>
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertRacaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertEspecie2">
+<xs:sequence>
+<xs:element name="nome" type="tns:especie" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertEspecie2Response">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEspecie">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEspecieResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

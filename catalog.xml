@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://192.168.111.96:8084/WebService/cadastroAnimal?wsdl" uri="xml-resources/web-service-references/cadastroAnimal/wsdl/192.168.111.96_8084/WebService/cadastroAnimal.wsdl"/>
+    <system systemId="http://192.168.111.96:8084/WebService/cadastroAnimal?xsd=1" uri="xml-resources/web-service-references/cadastroAnimal/wsdl/192.168.111.96_8084/WebService/cadastroAnimal.xsd_1.xsd"/>
+</catalog>
