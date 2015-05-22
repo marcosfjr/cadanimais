@@ -1,11 +1,20 @@
 
 package view;
 
+import service.CadastroAnimal;
+import service.CadastroAnimal_Service;
+
 public class CadEspecie extends javax.swing.JFrame {
+    
+    private CadastroAnimal_Service ws;
+    private CadastroAnimal op;
 
     public CadEspecie() {
         initComponents();
         txtId.setVisible(false);
+        
+        ws = new CadastroAnimal_Service();
+        op = ws.getCadastroAnimalPort();
     }
 
 
@@ -36,6 +45,11 @@ public class CadEspecie extends javax.swing.JFrame {
         });
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         txtId.setEditable(false);
 
@@ -88,6 +102,10 @@ public class CadEspecie extends javax.swing.JFrame {
         Menu m = new Menu();
         m.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        op.insertEspecie(txtNomeEspecie.getText());
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments

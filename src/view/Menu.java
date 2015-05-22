@@ -5,7 +5,6 @@ public class Menu extends javax.swing.JFrame {
 
     public Menu() {
         initComponents();
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -51,6 +50,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnFechar.setText("Fechar");
+        btnFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecharActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,6 +152,10 @@ public class Menu extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_btnCadAnimaisActionPerformed
 
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnFecharActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -181,9 +189,6 @@ public class Menu extends javax.swing.JFrame {
         });
     }
     
-    public void btnFechar(){
-        dispose();
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;

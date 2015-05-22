@@ -10,6 +10,18 @@
 <message name="insertEspecie2Response">
 <part name="parameters" element="tns:insertEspecie2Response" />
 </message>
+<message name="racaForInt">
+<part name="parameters" element="tns:racaForInt" />
+</message>
+<message name="racaForIntResponse">
+<part name="parameters" element="tns:racaForIntResponse" />
+</message>
+<message name="especieForInt">
+<part name="parameters" element="tns:especieForInt" />
+</message>
+<message name="especieForIntResponse">
+<part name="parameters" element="tns:especieForIntResponse" />
+</message>
 <message name="insertRaca">
 <part name="parameters" element="tns:insertRaca" />
 </message>
@@ -87,6 +99,14 @@
 <input wsam:Action="http://service/cadastroAnimal/insertEspecie2Request" message="tns:insertEspecie2" />
 <output wsam:Action="http://service/cadastroAnimal/insertEspecie2Response" message="tns:insertEspecie2Response" />
 </operation>
+<operation name="racaForInt">
+<input wsam:Action="http://service/cadastroAnimal/racaForIntRequest" message="tns:racaForInt" />
+<output wsam:Action="http://service/cadastroAnimal/racaForIntResponse" message="tns:racaForIntResponse" />
+</operation>
+<operation name="especieForInt">
+<input wsam:Action="http://service/cadastroAnimal/especieForIntRequest" message="tns:especieForInt" />
+<output wsam:Action="http://service/cadastroAnimal/especieForIntResponse" message="tns:especieForIntResponse" />
+</operation>
 <operation name="insertRaca">
 <input wsam:Action="http://service/cadastroAnimal/insertRacaRequest" message="tns:insertRaca" />
 <output wsam:Action="http://service/cadastroAnimal/insertRacaResponse" message="tns:insertRacaResponse" />
@@ -139,6 +159,24 @@
 <binding name="cadastroAnimalPortBinding" type="tns:cadastroAnimal">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
 <operation name="insertEspecie2">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="racaForInt">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="especieForInt">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

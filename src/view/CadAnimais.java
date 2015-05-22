@@ -1,11 +1,33 @@
 package view;
 
+import javax.swing.JOptionPane;
+import service.CadastroAnimal;
+import service.CadastroAnimal_Service;
+import service.Especie;
+import service.Raca;
+
 public class CadAnimais extends javax.swing.JFrame {
+    
+    private CadastroAnimal_Service ws;
+    private CadastroAnimal op;
 
     public CadAnimais() {
         initComponents();
         txtId.setVisible(false);
+        
+        ws = new CadastroAnimal_Service();
+        op = ws.getCadastroAnimalPort();
+        
+        for(Especie especie : op.listAllEspecie()){
+            cboxEspecie.addItem(especie.getNome());
+        }
+        for(Raca raca: op.listAllRaca()){
+            cboxRaca.addItem(raca.getNome());
+        }
+        
+        
     }
+    
 
    
     @SuppressWarnings("unchecked")
@@ -53,11 +75,16 @@ public class CadAnimais extends javax.swing.JFrame {
 
         cboxTamanho.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Pequeno", "Médio", "Grande" }));
 
-        cboxRaca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Item 2", "Item 3", "Item 4" }));
+        cboxRaca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
 
-        cboxEspecie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Item 2", "Item 3", "Item 4" }));
+        cboxEspecie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +196,35 @@ public class CadAnimais extends javax.swing.JFrame {
         m.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        String confimacao;
+        if(txtId.getText().isEmpty())
+            confimacao = op.insertAnimal(
+                txtNome.getText(), 
+                Integer.parseInt(txtIdade.getText()),
+                txtCor.getText(),
+                Double.parseDouble(txtPeso.getText()),
+                cboxTamanho.getSelectedIndex()+1,
+                op.racaForInt(cboxRaca.getSelectedItem().toString()),
+                op.especieForInt(cboxEspecie.getSelectedItem().toString()));
+        else
+            confimacao =  op.updateAnimal(
+                Integer.parseInt(txtId.getText()),
+                txtNome.getText(), 
+                Integer.parseInt(txtIdade.getText()),
+                txtCor.getText(),
+                Double.parseDouble(txtPeso.getText()),
+                cboxTamanho.getSelectedIndex()+1,
+                cboxRaca.getSelectedIndex(),
+                cboxEspecie.getSelectedIndex());
+        
+        if(confimacao.equals("success"))
+            JOptionPane.showMessageDialog(rootPane, "Cadastro Efetuado Com sucesso");
+        else
+            JOptionPane.showMessageDialog(rootPane, "Nao Foi");
+            
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -203,6 +259,8 @@ public class CadAnimais extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
@@ -225,3 +283,4 @@ public class CadAnimais extends javax.swing.JFrame {
     private javax.swing.JTextField txtPeso;
     // End of variables declaration//GEN-END:variables
 }
+
